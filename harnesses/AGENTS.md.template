@@ -1,0 +1,16 @@
+# AGENTS.md
+
+> Codex, Cursor, Gemini CLI 등 AGENTS.md를 읽는 에이전트용 공통 지침
+
+## Setup
+- 
+
+## Build & Test
+- 
+
+## Conventions
+- 
+
+## PR / Commit
+- 커밋 메시지: Conventional Commits (feat:, fix:, docs: ...)
+- PR 전 테스트 통과 필수
