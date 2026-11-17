@@ -18,3 +18,4 @@ python-docx / python-pptx / openpyxl 등을 사용하고, 생성 후 내용을 �
 
 ## 메모
 - HWP는 직접 생성이 어려우므로 DOCX로 만든 뒤 한글에서 변환하는 방식 권장
+- 이미 있는 HWP/HWPX 문서를 고칠 때는 [`skills/hwpx-formatting`](../../skills/hwpx-formatting/SKILL.md) 참고 (HWP → HWPX 변환 후 XML 패치, 서식 문제별 처방)
