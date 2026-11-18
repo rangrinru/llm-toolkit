@@ -10,7 +10,6 @@
 | 방식 | 50개 테마(재료) 중 3개 deal → 히어로 먼저 → sloplint | 24개 명령 (bolder, polish, critique, audit...) + `PRODUCT.md`/`DESIGN.md` | 업종 분류 → 팔레트/폰트/레이아웃 deal → 다중 폭 gate | SKILL.md 지침 |
 | 자동 검사 | `sloplint --render` (8개 폭), 새 컨텍스트 리뷰어 | `npx impeccable detect` (62개 규칙, CI 가능) | `gate.mjs` (5개 폭, 최대 3라운드) | 없음 |
 | 기존 페이지 | `/hallmark redesign`, `audit` (이름을 불러야만) | 주 용도 | 리디자인 시 브라우저 감사 후 변경 | - |
-| 요구 | Node 18+, puppeteer-core + Chrome(렌더 검사) | Node(npx), 엔진 바이너리 자동 다운로드 | Node 22+, Chrome | 없음 |
 
 ## 공통으로 금지하는 "AI 티"
 세 스킬이 공통으로 막는 패턴. 어느 LLM에서든 프롬프트에 넣을 수 있다.
