@@ -1,0 +1,61 @@
+# Hallmark 활용 프롬프트
+
+> Hallmark를 설치했을 때 쓰는 명령과, 설치 없이 다른 LLM(ChatGPT, Claude.ai 등)에서도 쓸 수 있는 압축 프롬프트.
+
+## 1. 스킬 설치 후 (Claude Code / Codex / Cursor)
+```text
+/hallmark {제품/서비스} 랜딩페이지. 대상: {누구}. 목적: {하나의 행동}. 톤: {editorial / brutalist / soft / utilitarian / luxury / playful / technical / austere}.
+재료: {스크린샷 경로 / 앱 URL / 사진 폴더 / 실제 수치}
+```
+```text
+/hallmark {설명}, theme: {slug}          # 테마 지정 (themes-catalog.md 참고)
+/hallmark {설명} custom                  # 테마 없이 완전 커스텀
+/hallmark redesign ./src/app             # 내용과 동작 유지, 디자인 재구성
+/hallmark redesign ./index.html polish   # AI 티만 제거
+/hallmark audit ./index.html             # 리포트만
+```
+
+## 2. 설치 없이 쓰는 압축 버전 (Anti-AI-slop 랜딩페이지)
+```text
+너는 템플릿을 싫어하는 시니어 디자이너다. 아래 페이지를 단일 HTML + CSS로 만들어라.
+
+[제품] {설명}  [대상] {누구}  [목적] {방문자가 할 단 하나의 행동}  [톤] {극단 하나}
+[재료] {실제로 있는 스크린샷, 사진, 수치, 인용. 없으면 "없음"}
+
+절대 규칙:
+- 색상/폰트는 :root 토큰으로만(OKLCH). 순수 #000/#fff, Tailwind 기본 팔레트 금지.
+- 금지 패턴: 제목 위 아이브로우 라벨, 자간 넓힌 대문자 라벨, 제목 속 한 단어만 다른 색/이탤릭,
+  "A · B · C" 메타, "Learn more →", 보라-파랑 그라데이션, 글로우/블롭, 카드 안의 카드,
+  아이콘-제목-설명 카드 3개, 이모지 아이콘, 가짜 브라우저 창, 마지막의 습관적 이메일 구독 폼.
+- Inter/Roboto/Poppins를 디스플레이 서체로 쓰지 말 것. 폰트 패밀리 최대 2개, 본문 16px 이상.
+- 수치, 후기, 로고는 내가 준 것만. 없으면 그 섹션을 만들지 말거나 data-slot 자리만 남겨라.
+- 폼은 실제 전송 없이 "감사합니다"를 띄우지 말 것.
+- 히어로: 제목 7단어 이하 + 한 문장 + 버튼 1~2개, 1280x800에서 스크롤 없이 모두 보이게. 높이는 dvh.
+- 섹션 6~9개, 한 화면 약 80단어. 섹션마다 구분 방식과 간격을 다르게(1440에서 최소 120px).
+- 모션은 transform/opacity만, transition: all 금지, prefers-reduced-motion 대응, 리빌 효과 최대 1개.
+- 모든 컨트롤에 즉시 보이는 :focus-visible, hover/active/disabled 상태. 대비 4.5:1 이상.
+- html, body에 overflow-x: clip. 컨테이너 최대폭 1360~1520px 가운데 정렬.
+
+진행 순서:
+1. 먼저 재료 목록(real / pictures / absent), 방문자의 job, 페이지 구조, 시그니처 요소 하나를 정리
+2. 같은 업종의 다른 프롬프트도 같은 결과가 나올지 자문하고, 그렇다면 결정 하나를 바꿔라
+3. 히어로를 먼저 만들고, 위 규칙으로 스스로 점검한 뒤 나머지 섹션
+4. CSS 첫 줄에 내린 디자인 결정(장르, 구조, 서체, 색, 히어로 형태)을 주석으로 남겨라
+5. 마지막에 위 금지 패턴 체크리스트로 자기 점검 결과를 표로 보고해라
+```
+
+## 3. 기존 페이지 AI 티 점검 (audit)
+```text
+이 페이지(또는 코드)에서 "AI가 만든 티"를 찾아줘. 수정하지 말고 보고만.
+기준: 01-design/hallmark/ai-slop-gates.md
+출력: | 등급(Floor/Reflex) | 위치 | 문제 | 수정 방법 |, 마지막에 가장 먼저 고칠 3가지.
+```
+
+## 4. 리디자인 (내용과 동작 유지)
+```text
+이 페이지를 리디자인해줘. 조건:
+- 모든 링크, 폼 필드, 이벤트 핸들러, 제목은 그대로 유지 (먼저 목록을 뽑아두고 끝나고 대조할 것)
+- 바꾸는 것: 디자인 시스템(토큰, 서체, 색)과 레이아웃
+- 기준: 01-design/hallmark/floor-rules.md 의 바닥 규칙
+- 결과로 before / after 비교와 변경 요약
+```
