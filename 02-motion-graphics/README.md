@@ -6,6 +6,7 @@
 ```
 02-motion-graphics/
 ├── remotion/          # React 기반 영상 (Remotion)
+├── hyperframes/       # HTML 기반 영상 (HyperFrames, 에이전트용)
 ├── manim/             # 수학/개념 설명 애니메이션 (Manim)
 ├── after-effects/     # AE 표현식, 스크립트
 ├── web-animation/     # CSS, GSAP, Framer Motion, Lottie
@@ -16,6 +17,7 @@
 | 파일 | 설명 |
 |---|---|
 | [`remotion/remotion-video.md`](./remotion/remotion-video.md) | Remotion 영상 컴포넌트 생성 |
+| [`hyperframes/README.md`](./hyperframes/README.md) | HyperFrames 정리: HTML로 쓰고 MP4로 렌더, Remotion 비교, 모션 타이밍 원칙 |
 | [`manim/manim-explainer.md`](./manim/manim-explainer.md) | Manim 개념 설명 애니메이션 |
 | [`after-effects/ae-expressions.md`](./after-effects/ae-expressions.md) | After Effects 표현식 |
 | [`web-animation/web-animation.md`](./web-animation/web-animation.md) | 웹 인터랙션 애니메이션 |
