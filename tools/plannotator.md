@@ -368,7 +368,7 @@ I've reviewed this plan and have N pieces of feedback:
 ```<original>```
 > I don't want this in the plan.
 ## 3. General feedback
-> <comment>
+> `<comment>`
 
 [ANSWERS ONLY]
 The user answered your questions and asked for no other changes.
