@@ -9,13 +9,13 @@ Claude Code 플러그인, MCP 서버, 에디터 확장 등 **기능 확장** 모
 | Playwright MCP | 브라우저 자동화 | https://github.com/microsoft/playwright-mcp |
 | Context7 | 최신 라이브러리 문서 주입 | https://github.com/upstash/context7 |
 
-## Claude Code 플러그인
-| 이름 | 용도 | 링크 |
+## 플러그인 분석 (다른 레포의 핵심 원리 정리)
+| 이름 | 핵심 아이디어 | 정리 문서 |
 |---|---|---|
-| claude-mem | 세션 간 영속 메모리 (캡처 → 압축 → 다음 세션 주입) | `/plugin marketplace add thedotmack/claude-mem` / [정리](./claude-mem.md) |
-| Knowledge Work Plugins | Anthropic 직군별 플러그인 (engineering, design, sales 등 17개+) | `claude plugin marketplace add anthropics/knowledge-work-plugins` / [정리](./knowledge-work-plugins.md) |
-| Plannotator | 에이전트 계획/diff 주석 리뷰 | `/plugin marketplace add backnotprop/plannotator` / [정리](../tools/plannotator.md) |
-| Hallmark | AI 티 안 나는 웹 디자인 스킬 (`/hallmark`, redesign, audit) | `/plugin marketplace add nutlope/hallmark` → `/plugin install hallmark@hallmark` / [정리](../01-design/hallmark) |
+| claude-mem | hook으로 캡처 → observer가 압축 → 인덱스만 주입하고 상세는 필요할 때 (progressive disclosure 메모리) | [claude-mem.md](./claude-mem.md) |
+| Knowledge Work Plugins | 직무를 skills/commands/connectors로 분해한 방법론 모음 | [knowledge-work-plugins.md](./knowledge-work-plugins.md) |
+| Plannotator | 계획 승인 지점을 가로채 사람의 구조화된 주석을 프롬프트로 되돌림 | [../tools/plannotator.md](../tools/plannotator.md) |
+| Hallmark | AI 티를 규칙과 렌더 검사로 막는 디자인 스킬 | [../01-design/hallmark](../01-design/hallmark) |
 
 ## 설정 예시
 ```json
