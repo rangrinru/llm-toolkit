@@ -18,6 +18,11 @@ skills/
 |---|---|
 | [`hwpx-formatting`](./hwpx-formatting/SKILL.md) | 한글(HWP/HWPX) 문서를 한글 프로그램 없이 고치기: 글 겹침, 띄어쓰기 벌어짐, 끝줄 한 글자, 표 제목 갈라짐, 열 너비 |
 
+## 외부 스킬 (설치해서 쓰는 것)
+| 스킬 | 설명 | 설치 | 정리 문서 |
+|---|---|---|---|
+| [Hallmark](https://github.com/Nutlope/hallmark) | AI 티 안 나는 웹 디자인 스킬 (Claude Code, Codex, Cursor, OpenCode) | `npx skills add nutlope/hallmark -g` | [01-design/hallmark](../01-design/hallmark) |
+
 ## 작성 팁
 - `description`은 "언제 이 스킬을 써야 하는지"를 명확하게 (모델이 이걸 보고 로드 여부를 판단)
 - SKILL.md 본문은 짧게, 세부 내용은 `references/`로 분리 (progressive disclosure)
