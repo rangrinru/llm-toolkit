@@ -17,6 +17,7 @@
 |---|---|
 | [`understanding/codebase-overview.md`](./understanding/codebase-overview.md) | 코드베이스 구조 파악 |
 | [`security/security-audit.md`](./security/security-audit.md) | 보안 점검 |
+| [`security/cloudflare-security-audit-skill.md`](./security/cloudflare-security-audit-skill.md) | Cloudflare 보안 감사 스킬 정리: 6단계, 반증 검증, confirmed/needs_validation/rejected |
 | [`performance/performance-check.md`](./performance/performance-check.md) | 성능 점검 |
 | [`quality/tech-debt.md`](./quality/tech-debt.md) | 코드 품질 / 기술 부채 점검 |
 | [`checklists/pre-release.md`](./checklists/pre-release.md) | 배포 전 체크리스트 |
