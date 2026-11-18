@@ -18,16 +18,18 @@ skills/
 |---|---|
 | [`hwpx-formatting`](./hwpx-formatting/SKILL.md) | 한글(HWP/HWPX) 문서를 한글 프로그램 없이 고치기: 글 겹침, 띄어쓰기 벌어짐, 끝줄 한 글자, 표 제목 갈라짐, 열 너비 |
 
-## 외부 스킬 (설치해서 쓰는 것)
-| 스킬 | 설명 | 설치 | 정리 문서 |
-|---|---|---|---|
-| [anthropics/skills](https://github.com/anthropics/skills) | Anthropic 공식 스킬 19개 (docx, pdf, pptx, xlsx, frontend-design, skill-creator 등) | `/plugin marketplace add anthropics/skills` | [external/anthropic-skills.md](./external/anthropic-skills.md) |
-| [Cloudflare security-audit-skill](https://github.com/cloudflare/security-audit-skill) | 다단계 보안 감사 + 독립 검증 | `npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit` | [05-code-inspection](../05-code-inspection/security/cloudflare-security-audit-skill.md) |
-| [Impeccable](https://github.com/pbakaus/impeccable) | 디자인 명령어 스킬 (bolder, polish, audit...) | `npx impeccable install` | [01-design/impeccable](../01-design/impeccable) |
-| [Taste Skill](https://github.com/Leonxlnx/taste-skill) | 회사/랜딩 사이트 디자인 취향 스킬 | `npx skills add https://github.com/Leonxlnx/taste-skill --skill "design-taste-frontend"` | [01-design/taste-skill](../01-design/taste-skill) |
-| [HyperFrames](https://github.com/heygen-com/hyperframes) | HTML로 영상 만들기 | `npx skills add heygen-com/hyperframes` | [02-motion-graphics/hyperframes](../02-motion-graphics/hyperframes) |
-| [Claude SEO](https://github.com/AgriciDaniel/claude-seo) | SEO 감사 (26개 이상 하위 스킬) | `/plugin marketplace add AgriciDaniel/claude-seo` | [external/claude-seo.md](./external/claude-seo.md) |
-| [Hallmark](https://github.com/Nutlope/hallmark) | AI 티 안 나는 웹 디자인 스킬 (Claude Code, Codex, Cursor, OpenCode) | `npx skills add nutlope/hallmark -g` | [01-design/hallmark](../01-design/hallmark) |
+## 외부 스킬 분석 (다른 레포의 핵심 원리 정리)
+설치법이 아니라 각 스킬이 **어떤 방법론과 알고리즘으로 동작하는지**를 정리한 문서.
+
+| 스킬 | 핵심 아이디어 | 정리 문서 |
+|---|---|---|
+| [anthropics/skills](https://github.com/anthropics/skills) | progressive disclosure, description이 트리거, 스킬 작성/평가 루프(skill-creator)와 스킬 19개의 방법론 | [external/anthropic-skills.md](./external/anthropic-skills.md) |
+| [Cloudflare security-audit-skill](https://github.com/cloudflare/security-audit-skill) | coverage ledger 기반 헌팅, 찾는 에이전트와 반증하는 에이전트 분리, 3단계 판정 | [05-code-inspection](../05-code-inspection/security/cloudflare-security-audit-skill.md) |
+| [Hallmark](https://github.com/Nutlope/hallmark) | 바닥 규칙 + 테마 deal + 렌더 린트 + 새 컨텍스트 리뷰 | [01-design/hallmark](../01-design/hallmark) |
+| [Impeccable](https://github.com/pbakaus/impeccable) | 디자인 명령어 어휘, PRODUCT/DESIGN 컨텍스트, 결정적 slop 감지 규칙 62개 | [01-design/impeccable](../01-design/impeccable) |
+| [Taste Skill](https://github.com/Leonxlnx/taste-skill) | 업종 분류 → 취향 대신 deal → 다중 폭 gate | [01-design/taste-skill](../01-design/taste-skill) |
+| [HyperFrames](https://github.com/heygen-com/hyperframes) | 시간의 함수로서의 화면, 프레임 단위 seek 캡처로 결정적 렌더 | [02-motion-graphics/hyperframes](../02-motion-graphics/hyperframes) |
+| [Claude SEO](https://github.com/AgriciDaniel/claude-seo) | 관찰과 해석 분리, 10원칙 사고 프레임워크, 점수 산정과 품질 게이트 | [external/claude-seo.md](./external/claude-seo.md) |
 
 ## 작성 팁
 - `description`은 "언제 이 스킬을 써야 하는지"를 명확하게 (모델이 이걸 보고 로드 여부를 판단)
