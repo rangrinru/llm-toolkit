@@ -12,7 +12,7 @@ Claude Code 플러그인, MCP 서버, 에디터 확장 등 **기능 확장** 모
 ## Claude Code 플러그인
 | 이름 | 용도 | 링크 |
 |---|---|---|
-| | | |
+| Hallmark | AI 티 안 나는 웹 디자인 스킬 (`/hallmark`, redesign, audit) | `/plugin marketplace add nutlope/hallmark` → `/plugin install hallmark@hallmark` / [정리](../01-design/hallmark) |
 
 ## 설정 예시
 ```json
