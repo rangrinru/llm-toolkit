@@ -25,7 +25,7 @@ HyperFrames는 두 세계를 섞는다. 실사 소스(아바타, 푸티지, 음�
 
 ## 3. 핵심 아이디어
 
-1. **영상 = paused 타임라인 + 시크**. 각 컴포지션은 멈춘(paused) 타임라인 하나를 만들고 window.__timelines["<id>"]에 등록한다. 렌더러는 재생하지 않고 프레임마다 시간을 "세팅"한다. "보이는 모든 것은 타임라인 시간의 함수"가 계약 4번이다.
+1. **영상 = paused 타임라인 + 시크**. 각 컴포지션은 멈춘(paused) 타임라인 하나를 만들고 window.__timelines["`<id>`"]에 등록한다. 렌더러는 재생하지 않고 프레임마다 시간을 "세팅"한다. "보이는 모든 것은 타임라인 시간의 함수"가 계약 4번이다.
 2. **시간을 가상화한다**. 렌더 중 Date.now, performance.now, requestAnimationFrame, setTimeout/setInterval, Math.random, crypto.getRandomValues를 모두 가짜로 바꿔 "시크한 시각"에 고정한다.
 3. **프레임 어댑터**. GSAP, CSS @keyframes, WAAPI, Lottie, anime.js, Three.js/WebGPU/canvas처럼 각자 시계를 가진 라이브러리를 공통 인터페이스 seek(time)로 통일한다.
 4. **Chrome의 컴포지터까지 수동 구동**. HeadlessExperimental.beginFrame으로 "레이아웃-페인트-합성-스크린샷"을 한 번의 원자적 호출로 실행한다.
@@ -50,11 +50,11 @@ flowchart LR
 
 ### 4.1 단계별 알고리즘
 
-1. **compile**: 루트의 data-composition-src 호스트마다 scene 파일의 <template> 내용을 인라인한다. ID 충돌 방지(SVG id 네임스페이싱 등), 자산 경로 재작성, 폰트 해석(번들 폰트, Google Fonts 캐시)을 한다. 페이지 head에 두 스크립트를 가장 먼저 주입한다.
+1. **compile**: 루트의 data-composition-src 호스트마다 scene 파일의 `<template>` 내용을 인라인한다. ID 충돌 방지(SVG id 네임스페이싱 등), 자산 경로 재작성, 폰트 해석(번들 폰트, Google Fonts 캐시)을 한다. 페이지 head에 두 스크립트를 가장 먼저 주입한다.
    - VIRTUAL_TIME_SHIM (producer/src/services/fileServer.ts): 시간과 난수 가상화.
    - hf-early-stub: window.gsap setter를 가로채 gsap.timeline()을 프록시로 감싼다. to/from/fromTo/set 호출을 큐에 쌓아 rAF 단위(100개씩)로 실제 타임라인에 반영하고, 모든 트윈 대상(__hfAllTweenTargets)과 3D 트윈 대상을 수집한다.
 2. **probe**: 헤드리스 Chrome에서 페이지를 열고 window.__hf = { duration, seek } 가 준비될 때까지 기다린다. 준비 판정은 window.__renderReady로, 폰트, 이미지, Three.js LoadingManager, window.__hf.buildReady[key] 프로미스가 모두 settle해야 true가 된다. root/host의 timeline이 없으면 45초 대기 후 정적 프레임이 되므로 lint(missing_data_no_timeline)가 이를 막는다.
-3. **extract videos**: <video>는 브라우저에서 디코딩하면 시크 정확도가 보장되지 않는다. 그래서 FFmpeg로 필요한 프레임을 미리 이미지로 뽑고, 캡처 직전 훅(videoFrameInjector)이 <video>를 해당 시각의 <img>로 교체한다. GPU 컴포지션은 주입 후 같은 t로 hf-seek를 강제 재발행(forceDispatchSeekEvent)해 텍스처를 다시 올린다.
+3. **extract videos**: `<video>`는 브라우저에서 디코딩하면 시크 정확도가 보장되지 않는다. 그래서 FFmpeg로 필요한 프레임을 미리 이미지로 뽑고, 캡처 직전 훅(videoFrameInjector)이 `<video>`를 해당 시각의 `<img>`로 교체한다. GPU 컴포지션은 주입 후 같은 t로 hf-seek를 강제 재발행(forceDispatchSeekEvent)해 텍스처를 다시 올린다.
 4. **audio**: 3장 참고. 영상 캡처와 병렬로 실행된다.
 5. **capture**: 프레임 i마다 다음을 수행한다.
    - t = i / fps 를 quantizeSeekTime으로 프레임 격자에 스냅한다: frameIndex = floor(t * fps + 1e-9), t = frameIndex / fps. 모션 블러용 서브프레임은 fps * divisions 격자에서 round한다.
@@ -93,7 +93,7 @@ beginFrame 모드 제약: Linux에서 알파가 필요하면 BeginFrame 컴포�
 ### 5.1 구조
 
 - **root (index.html)**: data-composition-id, data-start="0", data-duration(= 영상 길이), data-width, data-height. 변수 선언(data-composition-variables)과 scene 호스트, 미디어, 오디오만 둔다.
-- **scene (compositions/*.html)**: 모든 style, markup, script를 <template> 안에 두고 루트를 #root로 스타일링한다. 자체 paused 타임라인을 만들어 같은 id 키로 등록한다.
+- **scene (compositions/*.html)**: 모든 style, markup, script를 `<template>` 안에 두고 루트를 #root로 스타일링한다. 자체 paused 타임라인을 만들어 같은 id 키로 등록한다.
 - **host**: 루트 안의 빈 div로 data-composition-src를 가리킨다. host id, scene 루트 id, 타임라인 키는 같아야 한다(다르면 scene당 45초 대기 후 정적 프레임).
 - 런타임이 각 scene 타임라인을 직접 구동한다. 루트 타임라인에 add()하면 두 번 시크되므로 금지다.
 
@@ -154,7 +154,7 @@ window.__player, __playerReady, __renderReady, __timelines, __clipManifest, __hf
 
 ### 7.1 오디오 믹스 (engine/services/audioMixer.ts)
 
-- HTML을 파싱해 <audio id>와 data-has-audio 비디오를 트랙으로 만든다. id 없는 audio는 믹스에서 빠진다.
+- HTML을 파싱해 `<audio id>`와 data-has-audio 비디오를 트랙으로 만든다. id 없는 audio는 믹스에서 빠진다.
 - 트랙마다 FFmpeg 필터 체인: atrim(길이) -> volume(또는 automation 엔벨로프) -> afade -> adelay(시작 ms). 이후 amix=inputs=N:duration=longest:normalize=0 로 합치고 apad/atrim으로 총 길이를 맞춘다. normalize=0이 없는 구버전은 N배 게인으로 보정한다.
 - 재생 속도(rate)는 피치 보존, 오디오 FX 체인(EQ, 레벨러 등)과 true peak, 트랙 수가 많으면 filter_complex_script 파일로 전달.
 - 미디어 요소를 작성자가 play/pause/seek하면 안 된다(계약 7). 런타임이 시계에 맞춰 동기화한다.
@@ -176,7 +176,7 @@ window.__player, __playerReady, __renderReady, __timelines, __clipManifest, __hf
 
 ## 8. 계약(contract)과 lint 규칙
 
-SKILL.md의 12개 계약을 요약하면: (1) 타임드 요소는 clip + start + duration, (2) 영상 길이 = 루트 duration, (3) 컴포지션당 paused 타임라인 하나를 트윈 작성 후 등록, (4) 비결정 코드 금지, (5) .clip의 display/visibility 트윈 금지, (6) GSAP가 transform하는 요소에 CSS transform 금지, left/top 대신 transform, (7) 미디어 직접 제어 금지, (8) audio는 id 필수, crossorigin 금지, (9) 번들 외 폰트는 @font-face, (10) 경로는 assets/..., (11) 푸티지 그레이드는 CSS filter가 아니라 media-treatment, (12) scene은 <template> + #root.
+SKILL.md의 12개 계약을 요약하면: (1) 타임드 요소는 clip + start + duration, (2) 영상 길이 = 루트 duration, (3) 컴포지션당 paused 타임라인 하나를 트윈 작성 후 등록, (4) 비결정 코드 금지, (5) .clip의 display/visibility 트윈 금지, (6) GSAP가 transform하는 요소에 CSS transform 금지, left/top 대신 transform, (7) 미디어 직접 제어 금지, (8) audio는 id 필수, crossorigin 금지, (9) 번들 외 폰트는 @font-face, (10) 경로는 assets/..., (11) 푸티지 그레이드는 CSS filter가 아니라 media-treatment, (12) scene은 `<template>` + #root.
 
 packages/lint/src/rules는 구조, 컴포지션, GSAP, 미디어, 폰트, 자막, 셰이더 등으로 나뉘며 코드 기준 80여 개 규칙 코드가 있다. 대표 예:
 
@@ -189,7 +189,7 @@ packages/lint/src/rules는 구조, 컴포지션, GSAP, 미디어, 폰트, 자막
 | 미디어 | video_missing_muted, media_missing_id, media_crossorigin_breaks_preview, video_nested_in_timed_element | 소리 누락, 프리뷰 깨짐 |
 | 폰트 | font_family_without_font_face, font_face_local_only | 클라우드 렌더 시 폰트 치환 |
 
-추가로 check는 시크된 타임라인에서 레이아웃과 공예(craft) 경고를 측정한다: line_unread(읽기에 짧은 노출), dead_stretch(3초 이상 변화 없음), text_below_floor(짧은 변의 2.6% 미만 텍스트), first_frame_empty(썸네일), film_silent(15초 초과 무음), text_occluded. <name>.motion.json에 appearsBy, before, staysInFrame, keepsMoving 단언을 쓰면 motion_appears_late 같은 에러로 검증된다. 렌더 차단은 shouldBlockRender(strictErrors, strictAll)로 결정한다.
+추가로 check는 시크된 타임라인에서 레이아웃과 공예(craft) 경고를 측정한다: line_unread(읽기에 짧은 노출), dead_stretch(3초 이상 변화 없음), text_below_floor(짧은 변의 2.6% 미만 텍스트), first_frame_empty(썸네일), film_silent(15초 초과 무음), text_occluded. `<name>`.motion.json에 appearsBy, before, staysInFrame, keepsMoving 단언을 쓰면 motion_appears_late 같은 에러로 검증된다. 렌더 차단은 shouldBlockRender(strictErrors, strictAll)로 결정한다.
 
 ## 9. 에이전트 작업 루프
 
