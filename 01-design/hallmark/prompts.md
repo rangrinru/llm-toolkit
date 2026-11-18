@@ -1,21 +1,8 @@
 # Hallmark 활용 프롬프트
 
-> Hallmark를 설치했을 때 쓰는 명령과, 설치 없이 다른 LLM(ChatGPT, Claude.ai 등)에서도 쓸 수 있는 압축 프롬프트.
+> Hallmark의 규칙과 작업 순서를 압축해, 설치 없이 어떤 LLM(ChatGPT, Claude.ai 등)에서도 쓸 수 있게 만든 프롬프트.
 
-## 1. 스킬 설치 후 (Claude Code / Codex / Cursor)
-```text
-/hallmark {제품/서비스} 랜딩페이지. 대상: {누구}. 목적: {하나의 행동}. 톤: {editorial / brutalist / soft / utilitarian / luxury / playful / technical / austere}.
-재료: {스크린샷 경로 / 앱 URL / 사진 폴더 / 실제 수치}
-```
-```text
-/hallmark {설명}, theme: {slug}          # 테마 지정 (themes-catalog.md 참고)
-/hallmark {설명} custom                  # 테마 없이 완전 커스텀
-/hallmark redesign ./src/app             # 내용과 동작 유지, 디자인 재구성
-/hallmark redesign ./index.html polish   # AI 티만 제거
-/hallmark audit ./index.html             # 리포트만
-```
-
-## 2. 설치 없이 쓰는 압축 버전 (Anti-AI-slop 랜딩페이지)
+## 1. 압축 버전 (Anti-AI-slop 랜딩페이지)
 ```text
 너는 템플릿을 싫어하는 시니어 디자이너다. 아래 페이지를 단일 HTML + CSS로 만들어라.
 
@@ -44,14 +31,14 @@
 5. 마지막에 위 금지 패턴 체크리스트로 자기 점검 결과를 표로 보고해라
 ```
 
-## 3. 기존 페이지 AI 티 점검 (audit)
+## 2. 기존 페이지 AI 티 점검 (audit)
 ```text
 이 페이지(또는 코드)에서 "AI가 만든 티"를 찾아줘. 수정하지 말고 보고만.
 기준: 01-design/hallmark/ai-slop-gates.md
 출력: | 등급(Floor/Reflex) | 위치 | 문제 | 수정 방법 |, 마지막에 가장 먼저 고칠 3가지.
 ```
 
-## 4. 리디자인 (내용과 동작 유지)
+## 3. 리디자인 (내용과 동작 유지)
 ```text
 이 페이지를 리디자인해줘. 조건:
 - 모든 링크, 폼 필드, 이벤트 핸들러, 제목은 그대로 유지 (먼저 목록을 뽑아두고 끝나고 대조할 것)
