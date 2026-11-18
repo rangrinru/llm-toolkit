@@ -7,8 +7,8 @@ Claude, Codex, GPT, Gemini 등 LLM을 더 잘 쓰기 위한 **프롬프트, 스�
 ```
 llm-toolkit/
 │
-├── 01-design/               # 디자인: UI/웹, 디자인 시스템, 슬라이드, 이미지 생성, Hallmark 정리
-├── 02-motion-graphics/      # 모션그래픽: Remotion, Manim, After Effects, 웹 애니메이션, AI 영상
+├── 01-design/               # 디자인: UI/웹, 디자인 시스템, 슬라이드, 이미지 생성, Hallmark/Impeccable/Taste Skill 정리
+├── 02-motion-graphics/      # 모션그래픽: Remotion, HyperFrames, Manim, After Effects, 웹 애니메이션, AI 영상
 ├── 03-documents/            # 문서 작업: 보고서, 요약, 회의록, 이메일, 오피스 파일
 ├── 04-context-editing/      # 문맥 수정: 교정, 톤 변경, 논리 재구성, 압축/확장, 번역
 ├── 05-code-inspection/      # 코드 점검: 구조 파악, 보안, 성능, 품질, 배포 체크리스트
@@ -20,26 +20,28 @@ llm-toolkit/
 ├── skills/                  # Claude Skills(SKILL.md) 등 재사용 스킬 패키지
 ├── tools/                   # 유용한 AI 도구, CLI, 서비스 목록
 ├── plugins/                 # MCP 서버, Claude Code 플러그인, 확장
-└── templates/               # 프롬프트 / 워크플로우 작성 템플릿
+├── templates/               # 프롬프트 / 워크플로우 작성 템플릿
+└── trending/                # GitHub 트렌딩에서 고른 레포 월별 기록
 ```
 
 ## 카테고리
 
 | # | 카테고리 | 용도 | 대표 파일 |
 |---|---|---|---|
-| 01 | [Design](./01-design) | 정적인 시각 결과물 | [랜딩페이지](./01-design/ui-web/landing-page.md), [디자인 토큰](./01-design/design-system/design-tokens.md), [Hallmark](./01-design/hallmark) |
-| 02 | [Motion Graphics](./02-motion-graphics) | 코드 기반 모션 + AI 영상 | [Remotion](./02-motion-graphics/remotion/remotion-video.md), [AI 영상](./02-motion-graphics/ai-video/video-gen-prompt.md) |
+| 01 | [Design](./01-design) | 정적인 시각 결과물 | [랜딩페이지](./01-design/ui-web/landing-page.md), [디자인 토큰](./01-design/design-system/design-tokens.md), [Hallmark](./01-design/hallmark), [디자인 스킬 비교](./01-design/references/design-skills-compared.md) |
+| 02 | [Motion Graphics](./02-motion-graphics) | 코드 기반 모션 + AI 영상 | [Remotion](./02-motion-graphics/remotion/remotion-video.md), [AI 영상](./02-motion-graphics/ai-video/video-gen-prompt.md), [HyperFrames](./02-motion-graphics/hyperframes) |
 | 03 | [Documents](./03-documents) | 문서를 새로 작성/가공 | [보고서](./03-documents/writing/report.md), [요약](./03-documents/summarization/summarize.md) |
 | 04 | [Context Editing](./04-context-editing) | 이미 있는 글 다듬기 | [교정](./04-context-editing/proofreading/proofread.md), [톤 변경](./04-context-editing/tone/tone-rewrite.md) |
-| 05 | [Code Inspection](./05-code-inspection) | 수정 전 점검/분석 | [구조 파악](./05-code-inspection/understanding/codebase-overview.md), [보안](./05-code-inspection/security/security-audit.md) |
+| 05 | [Code Inspection](./05-code-inspection) | 수정 전 점검/분석 | [구조 파악](./05-code-inspection/understanding/codebase-overview.md), [보안](./05-code-inspection/security/security-audit.md), [Cloudflare 보안 감사 스킬](./05-code-inspection/security/cloudflare-security-audit-skill.md) |
 | 06 | [Code Fix](./06-code-fix) | 실제 코드 수정 | [디버깅](./06-code-fix/debugging/debug.md), [리팩토링](./06-code-fix/refactoring/refactor.md) |
 | 07 | [Code Review](./07-code-review) | 변경사항 리뷰 | [PR 리뷰](./07-code-review/pr-review/pr-review.md), [체크리스트](./07-code-review/checklists/review-checklist.md) |
 | 08 | [Agent Instructions](./08-agent-instructions) | 에이전트 지속 지침 | [CLAUDE.md](./08-agent-instructions/claude-code/CLAUDE.md.template), [AGENTS.md](./08-agent-instructions/codex/AGENTS.md.template) |
 | 09 | [Workflows](./09-workflows) | 작업 과정 / 프로세스 | [계획-구현-검증](./09-workflows/development/plan-implement-verify.md), [디자인→모션](./09-workflows/content/design-to-motion.md) |
-| - | [Skills](./skills) | 스킬 패키지 | [템플릿](./skills/_template/SKILL.md) |
-| - | [Tools](./tools) | 도구 목록 | |
-| - | [Plugins & MCP](./plugins) | 기능 확장 | |
+| - | [Skills](./skills) | 스킬 패키지 | [템플릿](./skills/_template/SKILL.md), [공식 Skills](./skills/external/anthropic-skills.md) |
+| - | [Tools](./tools) | 도구 목록 | [T3 Code](./tools/t3code.md), [Plannotator](./tools/plannotator.md), [agent-browser](./tools/agent-browser.md) |
+| - | [Plugins & MCP](./plugins) | 기능 확장 | [claude-mem](./plugins/claude-mem.md), [Knowledge Work](./plugins/knowledge-work-plugins.md) |
 | - | [Templates](./templates) | 작성 양식 | [프롬프트](./templates/prompt-template.md), [워크플로우](./templates/workflow-template.md) |
+| - | [Trending](./trending) | GitHub 트렌딩 월별 기록 | [2026년 11월](./trending/2026-11-monthly.md) |
 
 ## 어디에 넣을지 헷갈릴 때
 
