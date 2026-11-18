@@ -10,6 +10,7 @@ UI/UX, 웹/앱 화면, 디자인 시스템, 슬라이드, 이미지 생성 등 *
 ├── slides/            # 발표자료, 피치덱
 ├── image-gen/         # Midjourney, GPT Image, Imagen 등 이미지 생성
 ├── infographic/       # 단계 가이드, 프로세스 그림 등 한 장짜리 설명 그림
+├── hallmark/          # Hallmark(anti-AI-slop 디자인 스킬) 정리: 바닥 규칙, 체크리스트, 테마, 페이지 구조
 └── references/        # 레퍼런스 사이트, 스타일 키워드, 프롬프트 품질 요소
 ```
 
@@ -22,6 +23,15 @@ UI/UX, 웹/앱 화면, 디자인 시스템, 슬라이드, 이미지 생성 등 *
 | [`slides/presentation.md`](./slides/presentation.md) | 발표자료 구성 + 디자인 |
 | [`image-gen/image-prompt.md`](./image-gen/image-prompt.md) | 이미지 생성 프롬프트 공식 |
 | [`infographic/step-guide.md`](./infographic/step-guide.md) | 단계 가이드(프로세스 인포그래픽) + 스타일 프리셋 10종 |
+| [`hallmark/README.md`](./hallmark/README.md) | **Hallmark 정리**: AI 티 안 나는 웹 디자인 스킬 개요, 설치, 사용법 |
+| [`hallmark/floor-rules.md`](./hallmark/floor-rules.md) | 절대 어기면 안 되는 16개 바닥 규칙 (CLAUDE.md 붙여넣기용 포함) |
+| [`hallmark/ai-slop-gates.md`](./hallmark/ai-slop-gates.md) | AI 티 체크리스트 (색, 타이포, 레이아웃, 카피, 모션, 접근성) |
+| [`hallmark/build-flow.md`](./hallmark/build-flow.md) | 7단계 빌드 과정 + 사전 질문 템플릿 |
+| [`hallmark/genres.md`](./hallmark/genres.md) | 4개 장르별 허용/금지 |
+| [`hallmark/themes-catalog.md`](./hallmark/themes-catalog.md) | 50개 테마 카탈로그 |
+| [`hallmark/macrostructures.md`](./hallmark/macrostructures.md) | 21개 페이지 구조 + 도메인별 추천 |
+| [`hallmark/custom-direction.md`](./hallmark/custom-direction.md) | 테마 없이 커스텀 디자인하는 원칙 |
+| [`hallmark/prompts.md`](./hallmark/prompts.md) | Hallmark 명령 + 설치 없이 쓰는 anti-slop 프롬프트 |
 | [`references/style-keywords.md`](./references/style-keywords.md) | 스타일 키워드 / 레퍼런스 / 한글 폰트 / 색 조합 / 문장 톤 |
 | [`references/prompt-elements.md`](./references/prompt-elements.md) | 디자인 프롬프트 품질을 올리는 요소 + 틀 |
 
