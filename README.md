@@ -35,9 +35,9 @@ llm-toolkit/
 | 05 | [Code Inspection](./05-code-inspection) | 수정 전 점검/분석 | [구조 파악](./05-code-inspection/understanding/codebase-overview.md), [보안](./05-code-inspection/security/security-audit.md), [Cloudflare 보안 감사 스킬](./05-code-inspection/security/cloudflare-security-audit-skill.md) |
 | 06 | [Code Fix](./06-code-fix) | 실제 코드 수정 | [디버깅](./06-code-fix/debugging/debug.md), [리팩토링](./06-code-fix/refactoring/refactor.md) |
 | 07 | [Code Review](./07-code-review) | 변경사항 리뷰 | [PR 리뷰](./07-code-review/pr-review/pr-review.md), [체크리스트](./07-code-review/checklists/review-checklist.md) |
-| 08 | [Agent Instructions](./08-agent-instructions) | 에이전트 지속 지침 | [CLAUDE.md](./08-agent-instructions/claude-code/CLAUDE.md.template), [AGENTS.md](./08-agent-instructions/codex/AGENTS.md.template) |
+| 08 | [Agent Instructions](./08-agent-instructions) | 에이전트 지속 지침 | [CLAUDE.md](./08-agent-instructions/claude-code/CLAUDE.md.template), [AGENTS.md](./08-agent-instructions/codex/AGENTS.md.template), [한국어 작성 지침](./08-agent-instructions/system-prompts/korean-writing-guide.md) |
 | 09 | [Workflows](./09-workflows) | 작업 과정 / 프로세스 | [계획-구현-검증](./09-workflows/development/plan-implement-verify.md), [디자인→모션](./09-workflows/content/design-to-motion.md) |
-| - | [Skills](./skills) | 스킬 패키지 | [템플릿](./skills/_template/SKILL.md), [공식 Skills](./skills/external/anthropic-skills.md) |
+| - | [Skills](./skills) | 스킬 패키지 | [템플릿](./skills/_template/SKILL.md), [한국어 글쓰기](./skills/natural-korean-writing/SKILL.md), [공식 Skills](./skills/external/anthropic-skills.md) |
 | - | [Tools](./tools) | 도구 목록 | [T3 Code](./tools/t3code.md), [Plannotator](./tools/plannotator.md), [agent-browser](./tools/agent-browser.md) |
 | - | [Plugins & MCP](./plugins) | 기능 확장 | [claude-mem](./plugins/claude-mem.md), [Knowledge Work](./plugins/knowledge-work-plugins.md) |
 | - | [Templates](./templates) | 작성 양식 | [프롬프트](./templates/prompt-template.md), [워크플로우](./templates/workflow-template.md) |

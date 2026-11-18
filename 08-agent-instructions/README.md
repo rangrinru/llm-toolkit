@@ -25,6 +25,7 @@ Claude Code, Codex, Cursor 등 에이전트에게 주는 **지속적인 지침**
 | [`codex/AGENTS.md.template`](./codex/AGENTS.md.template) | AGENTS.md 템플릿 (Codex, Cursor 등 공용) |
 | [`cursor/project-rules.mdc`](./cursor/project-rules.mdc) | Cursor 프로젝트 규칙 |
 | [`system-prompts/personal-assistant.md`](./system-prompts/personal-assistant.md) | 개인 어시스턴트 시스템 프롬프트 |
+| [`system-prompts/korean-writing-guide.md`](./system-prompts/korean-writing-guide.md) | 자연스러운 한국어 문장 작성 시스템 지침 (번역투 제거, 단문화, 문체 리듬) |
 
 ## 작성 규칙
 - 지침은 짧고 구체적으로 (모호한 "잘 해줘" 금지)

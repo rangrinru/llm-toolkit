@@ -17,6 +17,7 @@ skills/
 | 스킬 | 설명 |
 |---|---|
 | [`hwpx-formatting`](./hwpx-formatting/SKILL.md) | 한글(HWP/HWPX) 문서를 한글 프로그램 없이 고치기: 글 겹침, 띄어쓰기 벌어짐, 끝줄 한 글자, 표 제목 갈라짐, 열 너비 |
+| [`natural-korean-writing`](./natural-korean-writing/SKILL.md) | 자연스러운 한국어 문장 작성 및 교정: 번역투 조사 제거, 용언 중심 서술, 단문화, 종결어미 변주 및 AI Slop 박멸 |
 
 ## 외부 스킬 분석 (다른 레포의 핵심 원리 정리)
 설치법이 아니라 각 스킬이 **어떤 방법론과 알고리즘으로 동작하는지**를 정리한 문서.
