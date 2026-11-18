@@ -14,6 +14,7 @@
 ## 이 폴더의 문서
 | 파일 | 내용 |
 |---|---|
+| [`algorithms.md`](./algorithms.md) | 테마 deal, 구조 draw, sloplint 판정, 리디자인 보존 검사 등 내부 알고리즘 |
 | [`floor-rules.md`](./floor-rules.md) | 절대 어기면 안 되는 16개 바닥 규칙 (가장 먼저 볼 것) |
 | [`ai-slop-gates.md`](./ai-slop-gates.md) | "AI 티" 체크리스트: 색, 타이포, 레이아웃, 카피, 모션, 접근성 |
 | [`build-flow.md`](./build-flow.md) | Hallmark의 7단계 빌드 과정과 사전 질문 템플릿 |
@@ -21,42 +22,16 @@
 | [`themes-catalog.md`](./themes-catalog.md) | 50개 테마 목록 (배경, 서체, 강조색, 재료) |
 | [`macrostructures.md`](./macrostructures.md) | 21개 페이지 구조 + 도메인별 추천 |
 | [`custom-direction.md`](./custom-direction.md) | 테마 없이 완전 커스텀으로 디자인할 때의 원칙 |
-| [`prompts.md`](./prompts.md) | 바로 쓰는 프롬프트 (스킬 설치 없이 쓰는 압축 버전 포함) |
+| [`prompts.md`](./prompts.md) | Hallmark 방법론을 어떤 LLM에서든 쓰는 압축 프롬프트 |
 
-## 설치
-```bash
-# 모든 프로젝트에 설치 (Node 18+)
-npx skills add nutlope/hallmark -g
+## 작동 방식 한눈에 보기
+1. **Pre-flight**: 묻기 전에 프로젝트(폰트, 팔레트, 프레임워크, `design.md`)와 실제 제품부터 읽는다
+2. **Ask once**: 재료, 대상, 목적, 톤을 한 번만 묻는다. 사실(수치, 인용, 로고)은 절대 추론하지 않는다
+3. **Shape + Deal**: 방문자의 job으로 페이지 구조를 설계하고, 프롬프트와 과거 기록을 바탕으로 테마 3개를 뽑아 하나를 고른다
+4. **Hero first**: 히어로만 먼저 만들어 렌더 검사와 새 컨텍스트 리뷰를 통과시킨 뒤 나머지를 만든다
+5. **Sweep**: 8개 화면 폭에서 린트하고, 판단형 게이트를 검토하고, 새 컨텍스트 리뷰어가 최종 판정한다
 
-# 특정 하네스만
-npx skills add nutlope/hallmark -g --agent claude-code   # codex, cursor, opencode, github-copilot
-
-# 브라우저 검사(sloplint --render, 스크린샷)를 쓰려면
-npm i -g puppeteer-core   # + Chrome
-```
-
-Claude Code 플러그인으로 설치:
-```text
-/plugin marketplace add nutlope/hallmark
-/plugin install hallmark@hallmark      # 호출: /hallmark:hallmark
-```
-
-| 하네스 | 설치 위치 | 호출 |
-|---|---|---|
-| Claude Code | `~/.claude/skills/hallmark` | `/hallmark <프롬프트>` |
-| Codex CLI | `~/.agents/skills/hallmark` | `$hallmark <프롬프트>` |
-| Cursor / OpenCode | 위 경로를 자동 인식 | `/hallmark <프롬프트>` |
-
-## 주요 명령
-```text
-/hallmark <만들 페이지 설명>          # 새 페이지 빌드 (테마 3개 중 선택)
-/hallmark <설명> custom               # 테마 없이 완전 커스텀
-/hallmark redesign ./src/app          # 내용과 동작은 유지하고 디자인만 재구성
-/hallmark audit ./index.html          # 수정 없이 리포트만
-```
-- redesign 옵션: "keep the layout"(스타일만 변경), "polish"(AI 티만 제거)
-- 린트만 돌리기: `node skills/hallmark/scripts/sloplint.mjs <파일 또는 폴더> --render`
-- 저절로 실행되지 않으면 이름을 직접 부르기: *use hallmark to build ...*
+테마 선택, 페이지 구조 deal, 린트 판정 같은 내부 알고리즘은 [`algorithms.md`](./algorithms.md)에 정리했다.
 
 ## 게이트 등급
 | 등급 | 의미 |
