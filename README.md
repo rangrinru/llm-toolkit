@@ -7,7 +7,7 @@ Claude, Codex, GPT, Gemini 등 LLM을 더 잘 쓰기 위한 **프롬프트, 스�
 ```
 llm-toolkit/
 │
-├── 01-design/               # 디자인: UI/웹, 디자인 시스템, 슬라이드, 이미지 생성
+├── 01-design/               # 디자인: UI/웹, 디자인 시스템, 슬라이드, 이미지 생성, Hallmark 정리
 ├── 02-motion-graphics/      # 모션그래픽: Remotion, Manim, After Effects, 웹 애니메이션, AI 영상
 ├── 03-documents/            # 문서 작업: 보고서, 요약, 회의록, 이메일, 오피스 파일
 ├── 04-context-editing/      # 문맥 수정: 교정, 톤 변경, 논리 재구성, 압축/확장, 번역
@@ -27,7 +27,7 @@ llm-toolkit/
 
 | # | 카테고리 | 용도 | 대표 파일 |
 |---|---|---|---|
-| 01 | [Design](./01-design) | 정적인 시각 결과물 | [랜딩페이지](./01-design/ui-web/landing-page.md), [디자인 토큰](./01-design/design-system/design-tokens.md) |
+| 01 | [Design](./01-design) | 정적인 시각 결과물 | [랜딩페이지](./01-design/ui-web/landing-page.md), [디자인 토큰](./01-design/design-system/design-tokens.md), [Hallmark](./01-design/hallmark) |
 | 02 | [Motion Graphics](./02-motion-graphics) | 코드 기반 모션 + AI 영상 | [Remotion](./02-motion-graphics/remotion/remotion-video.md), [AI 영상](./02-motion-graphics/ai-video/video-gen-prompt.md) |
 | 03 | [Documents](./03-documents) | 문서를 새로 작성/가공 | [보고서](./03-documents/writing/report.md), [요약](./03-documents/summarization/summarize.md) |
 | 04 | [Context Editing](./04-context-editing) | 이미 있는 글 다듬기 | [교정](./04-context-editing/proofreading/proofread.md), [톤 변경](./04-context-editing/tone/tone-rewrite.md) |
